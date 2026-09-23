@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mi página✨</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f8eafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pantalla {
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 27px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    button {
+      display: block;
+      width: 80%;
+      margin: 12px auto;
+      padding: 14px;
+      border: none;
+      border-radius: 15px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    #personaje {
+      font-size: 100px;
+      margin: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PANTALLA DE INICIO -->
+  <div id="pantallaInicio" class="pantalla">
+
+    <h1>¡Bienvenid@! 🌸</h1>
+
+    <p>Comencemos nuestra aventura ✨</p>
+
+    <button onclick="empezar()">
+      Empezar 💗
+    </button>
+
+  </div>
+
+
+  <!-- CREACIÓN DEL PERSONAJE -->
+  <div id="pantallaPersonaje" class="pantalla" style="display: none;">
+
+    <h2>¡Vamos a crear tu personaje! ✨</h2>
+
+    <p>Elige tu personaje:</p>
+
+    <div id="personaje">
+      👧
+    </div>
+
+    <button onclick="cambiarPersonaje('👧')">
+      🌸 Personaje 1
+    </button>
+
+    <button onclick="cambiarPersonaje('👩🏻')">
+      ✨ Personaje 2
+    </button>
+
+    <button onclick="cambiarPersonaje('👩🏽')">
+      🌷 Personaje 3
+    </button>
+
+    <button onclick="continuar()">
+      Continuar 💕
+    </button>
+
+  </div>
+
+
+  <!-- TERCERA PANTALLA -->
+  <div id="pantallaSiguiente" class="pantalla" style="display: none;">
+
+    <h2>¡Tu personaje está listo! 🎀</h2>
+
+    <div id="personajeFinal">
+      👧
+    </div>
+
+    <p>Ahora podemos elegir su ropita 👗✨</p>
+
+    <button onclick="alert('Aquí pondremos la ropa después 👗')">
+      Elegir ropa 👗
+    </button>
+
+  </div>
+
+
+  <script>
+
+    function empezar() {
+
+      document.getElementById("pantallaInicio").style.display = "none";
+
+      document.getElementById("pantallaPersonaje").style.display = "block";
+
+    }
+
+
+    function cambiarPersonaje(personaje) {
+
+      document.getElementById("personaje").textContent = personaje;
+
+    }
+
+
+    function continuar() {
+
+      let personajeElegido =
+        document.getElementById("personaje").textContent;
+
+      document.getElementById("pantallaPersonaje").style.display = "none";
+
+      document.getElementById("pantallaSiguiente").style.display = "block";
+
+      document.getElementById("personajeFinal").textContent =
+        personajeElegido;
+
+    }
+
+  </script>
+
+</body>
+</html>
