@@ -1,157 +1,1144 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mi página✨</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #f8eafa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<title>yoshelinac3f🌷</title>
 
-    .pantalla {
-      width: 90%;
-      max-width: 500px;
-      padding: 30px;
-      box-sizing: border-box;
-    }
+<style>
 
-    h1 {
-      font-size: 32px;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    h2 {
-      font-size: 27px;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #98cc8b;
+  text-align: center;
+  overflow-x: hidden;
+}
 
-    p {
-      font-size: 18px;
-    }
+.pantalla {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  padding: 30px 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-    button {
-      display: block;
-      width: 80%;
-      margin: 12px auto;
-      padding: 14px;
-      border: none;
-      border-radius: 15px;
-      font-size: 17px;
-      cursor: pointer;
-    }
+.pantalla.activa {
+  display: flex;
+}
 
-    #personaje {
-      font-size: 100px;
-      margin: 25px;
-    }
-  </style>
+h1 {
+  color: #a05b85;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #4b5933;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  border-radius: 18px;
+  padding: 13px 20px;
+  margin: 8px;
+  background: #e9b9d2;
+  color: #5d3b50;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+input {
+  width: 85%;
+  max-width: 350px;
+  padding: 14px;
+  border: 3px solid #e9b9d2;
+  border-radius: 18px;
+  outline: none;
+  font-size: 17px;
+  text-align: center;
+  background: white;
+}
+
+.inicioDecoracion {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+.pibblePrincipal {
+  width: 150px;
+  max-height: 170px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.botonesPibbles {
+  width: 100%;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.botonPibble {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #789478;
+  border: 3px solid transparent;
+  border-radius: 22px;
+  padding: 10px;
+}
+
+.botonPibble img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.botonPibble span {
+  font-size: 14px;
+}
+
+.botonPibble.seleccionado {
+  border: 3px solid #7b4b69;
+  transform: scale(1.03);
+  background: #efd0e0;
+}
+
+.botonesEmociones {
+  width: 100%;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+}
+
+.botonEmocion {
+  min-height: 70px;
+}
+
+.escenaEmocion {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border-radius: 25px;
+  margin: 15px auto;
+}
+
+.imagenEmocion {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pibbleConsejo {
+  position: absolute;
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  right: 12%;
+  bottom: 8%;
+  z-index: 5;
+  filter: drop-shadow(2px 3px 2px rgba(0,0,0,.25));
+  animation: pibbleFlotar 2.2s ease-in-out infinite;
+}
+
+@keyframes pibbleFlotar {
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-7px);}
+  100%{transform:translateY(0);}
+}
+
+.movimientoFeliz {
+  animation: movimientoFeliz 2s ease-in-out infinite;
+}
+
+@keyframes movimientoFeliz {
+  0%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-8px) rotate(2deg);}
+  100%{transform:translateY(0) rotate(0deg);}
+}
+
+.movimientoTranquilo {
+  animation: movimientoTranquilo 4s ease-in-out infinite;
+}
+
+@keyframes movimientoTranquilo {
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-3px);}
+  100%{transform:translateY(0);}
+}
+
+.movimientoTriste {
+  animation: movimientoTriste 2.8s ease-in-out infinite;
+}
+
+@keyframes movimientoTriste {
+  0%{transform:translateY(0);}
+  50%{transform:translateY(5px);}
+  100%{transform:translateY(0);}
+}
+
+.movimientoCansado {
+  animation: movimientoCansado 4s ease-in-out infinite;
+}
+
+@keyframes movimientoCansado {
+  0%{transform:translateY(0);}
+  50%{transform:translateY(3px);}
+  100%{transform:translateY(0);}
+}
+
+.movimientoEnojado {
+  animation: movimientoEnojado .8s ease-in-out infinite;
+}
+
+@keyframes movimientoEnojado {
+  0%{transform:translateX(0);}
+  25%{transform:translateX(-4px);}
+  50%{transform:translateX(4px);}
+  75%{transform:translateX(-3px);}
+  100%{transform:translateX(0);}
+}
+
+/* MINI JUEGO */
+
+.minijuego {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  height: 100vh;
+  max-height: 800px;
+  overflow: hidden;
+  background-image: url("fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+}
+
+.imagenInicioMini {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%,-65%);
+  border-radius: 18px;
+  z-index: 2;
+}
+
+.dialogo {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 25px;
+  min-height: 155px;
+  background: white;
+  border-radius: 25px;
+  padding: 18px;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0,0,0,.18);
+}
+
+.dialogoTexto {
+  color: #57404d;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+/* PLANTACION */
+
+.plantacionZona {
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  background-image: url("paisajeArbol.jpg");
+  background-size: cover;
+  background-position: center;
+  margin: 15px 0;
+}
+
+.tierra {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: #8b5a3c;
+  z-index: 1;
+}
+
+.hoyito {
+  position: absolute;
+  width: 90px;
+  height: 30px;
+  background: #493027;
+  border-radius: 50%;
+  bottom: 28%;
+  left: calc(50% - 45px);
+  display: none;
+  z-index: 3;
+  animation: aparecerHoyito 1.5s ease;
+}
+
+@keyframes aparecerHoyito {
+  0%{opacity:0; transform:scale(.4);}
+  100%{opacity:1; transform:scale(1);}
+}
+
+.semilla {
+  position: absolute;
+  font-size: 35px;
+  bottom: 28%;
+  left: calc(50% - 18px);
+  display: none;
+  z-index: 4;
+  animation: aparecerSemilla 1.5s ease;
+}
+
+@keyframes aparecerSemilla {
+  0%{opacity:0; transform:translateY(15px);}
+  100%{opacity:1; transform:translateY(0);}
+}
+
+.arbolPlantado {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  bottom: 13%;
+  left: calc(50% - 120px);
+  display: none;
+  z-index: 5;
+  animation: aparecerArbol 2.2s ease;
+}
+
+@keyframes aparecerArbol {
+  0%{transform:scale(0); opacity:0;}
+  65%{transform:scale(1.08); opacity:1;}
+  100%{transform:scale(1); opacity:1;}
+}
+
+.pibbleArbol {
+  position: absolute;
+  width: 135px;
+  height: 135px;
+  object-fit: contain;
+  bottom: 1%;
+  left: calc(50% - 67.5px);
+  display: none;
+  z-index: 6;
+  filter: drop-shadow(2px 3px 2px rgba(0,0,0,.25));
+  animation: pibbleLlegar 2s ease;
+}
+
+@keyframes pibbleLlegar {
+  0%{opacity:0; transform:translateY(35px);}
+  100%{opacity:1; transform:translateY(0);}
+}
+
+.mensajePlantacion {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.mensajeTocarTierra {
+  margin: 2px 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #5d3b50;
+}
+
+.propuestasImagen {
+  width: 95%;
+  max-width: 600px;
+  max-height: 65vh;
+  object-fit: contain;
+  border-radius: 20px;
+  margin: 15px 0;
+}
+
+.fraseFinal {
+  font-size: 21px;
+  font-weight: bold;
+  color: #7b4b69;
+}
+
+@media (max-width:500px) {
+
+  .botonesPibbles{
+    gap:8px;
+  }
+
+  .botonPibble{
+    min-height:135px;
+  }
+
+  .botonPibble img{
+    width:95px;
+    height:95px;
+  }
+
+  .dialogo{
+    min-height:165px;
+  }
+
+  .imagenInicioMini{
+    width:210px;
+    height:210px;
+  }
+
+  .plantacionZona{
+    height:340px;
+  }
+
+  .arbolPlantado{
+    width:215px;
+    height:215px;
+    left:calc(50% - 107.5px);
+    bottom:13%;
+  }
+
+  .pibbleArbol{
+    width:125px;
+    height:125px;
+    left:calc(50% - 62.5px);
+    bottom:1%;
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <!-- PANTALLA DE INICIO -->
-  <div id="pantallaInicio" class="pantalla">
+<section id="inicio" class="pantalla activa">
 
-    <h1>¡Bienvenid@! 🌸</h1>
+  <div class="inicioDecoracion">💐✨</div>
 
-    <p>Comencemos nuestra aventura ✨</p>
+  <h1>hola bienvenid@! 🌷</h1>
 
-    <button onclick="empezar()">
-      Empezar 💗
+  <p>
+    esta pagina fue creada con el fin d que conozcan algunas propuestas d nuestra planilla color verde y entretenerlos un poco💗
+  </p>
+
+  <button onclick="mostrar('nombre')">
+    Comenzar ✨
+  </button>
+
+</section>
+
+<section id="nombre" class="pantalla">
+
+  <h1>¿Cómo quieres que te llame? 💗</h1>
+
+  <p>
+    Puedes elegir el nombre o apodo que más te guste🐾
+  </p>
+
+  <input
+    id="nombreUsuario"
+    type="text"
+    placeholder="Escribe tu nombre..."
+    maxlength="20"
+  >
+
+  <div>
+
+    <button onclick="guardarNombre()">
+      Continuar 🌸
+    </button>
+
+    <button onclick="mostrar('inicio')">
+      Regresar 🏠
     </button>
 
   </div>
 
+</section>
 
-  <!-- CREACIÓN DEL PERSONAJE -->
-  <div id="pantallaPersonaje" class="pantalla" style="display: none;">
+<section id="pibbles" class="pantalla">
 
-    <h2>¡Vamos a crear tu personaje! ✨</h2>
+  <img
+    id="pibblePrincipal"
+    class="pibblePrincipal"
+    src="pibble_acode.png"
+    alt="Pibble"
+  >
 
-    <p>Elige tu personaje:</p>
+  <h1>
+    Mucho gusto,
+    <span id="nombreMostrar"></span>
+    💗
+  </h1>
 
-    <div id="personaje">
-      👧
+  <p>
+    Elige a el pibble q te acompañara en esta pequeña aventura 🐾
+  </p>
+
+  <div class="botonesPibbles">
+
+    <button class="botonPibble" data-normal="Abejita.png" data-pixel="Abejitapixeleado.jpg" data-nombre="Pibble Abejita" onclick="seleccionarPibble(this)">
+      <img src="Abejita.png" alt="Pibble Abejita">
+      <span>🐝 Pibble Abejita</span>
+    </button>
+
+    <button class="botonPibble" data-normal="Alien.png" data-pixel="Alienpixeleado.jpg" data-nombre="Pibble Alien" onclick="seleccionarPibble(this)">
+      <img src="Alien.png" alt="Pibble Alien">
+      <span>👽 Pibble Alien</span>
+    </button>
+
+    <button class="botonPibble" data-normal="pibble_acode.png" data-pixel="Normalpixeleado.jpg" data-nombre="Pibble Normal" onclick="seleccionarPibble(this)">
+      <img src="pibble_acode.png" alt="Pibble Normal">
+      <span>🐶 Pibble Normal</span>
+    </button>
+
+    <button class="botonPibble" data-normal="Rawr.png" data-pixel="Rawrpixeleado.jpg" data-nombre="Pibble Rawr" onclick="seleccionarPibble(this)">
+      <img src="Rawr.png" alt="Pibble Rawr">
+      <span>🦖 Pibble Rawr</span>
+    </button>
+
+  </div>
+
+  <button id="botonListo" disabled onclick="confirmarPibble()">
+    Listo 💚
+  </button>
+
+  <button onclick="mostrar('nombre')">
+    Regresar 🏠
+  </button>
+
+</section>
+
+<section id="emociones" class="pantalla">
+
+  <h1>
+    ¿Cómo te sientes el día de hoy? 💗
+  </h1>
+
+  <p>
+    Elige una emoción 🌷
+  </p>
+
+  <div class="botonesEmociones">
+
+    <button class="botonEmocion" onclick="mostrarConsejo('feliz')">
+      🌞 Alegre
+    </button>
+
+    <button class="botonEmocion" onclick="mostrarConsejo('tranquilo')">
+      🌿 Tranquilo
+    </button>
+
+    <button class="botonEmocion" onclick="mostrarConsejo('triste')">
+      🌧️ Triste
+    </button>
+
+    <button class="botonEmocion" onclick="mostrarConsejo('cansado')">
+      😴 Cansado
+    </button>
+
+    <button class="botonEmocion" onclick="mostrarConsejo('enojado')">
+      😡 Enojado
+    </button>
+
+    <button class="botonEmocion" onclick="mostrarConsejo('confundido')">
+      ❓ Confundido
+    </button>
+
+  </div>
+
+  <button onclick="mostrar('pibbles')">
+    Cambiar Pibble 🐾
+  </button>
+
+</section>
+
+<section id="consejo" class="pantalla">
+
+  <h1 id="tituloConsejo">
+    💗
+  </h1>
+
+  <div class="escenaEmocion">
+
+    <img id="imagenEmocion" class="imagenEmocion" src="" alt="Escena de Minecraft">
+
+    <img id="pibbleConsejo" class="pibbleConsejo" src="" alt="Pibble">
+
+  </div>
+
+  <p id="textoConsejo"></p>
+
+  <button onclick="prepararMiniJuego()">
+    Ir al mini juego 🎮
+  </button>
+
+  <button onclick="mostrar('emociones')">
+    Cambiar emoción 🌷
+  </button>
+
+</section>
+
+<section id="miniJuego" class="pantalla">
+
+  <div class="minijuego">
+
+    <img id="imagenInicioMini" class="imagenInicioMini" src="Chicainicio.jpg" alt="Inicio del mini juego">
+
+    <div class="dialogo">
+
+      <div id="dialogoTexto" class="dialogoTexto"></div>
+
+      <button onclick="comenzarPlantacion()">
+        Sí, vamos 🌱💚
+      </button>
+
+      <button onclick="mostrar('inicio')">
+        No, regresar 🏠
+      </button>
+
     </div>
 
-    <button onclick="cambiarPersonaje('👧')">
-      🌸 Personaje 1
-    </button>
-
-    <button onclick="cambiarPersonaje('👩🏻')">
-      ✨ Personaje 2
-    </button>
-
-    <button onclick="cambiarPersonaje('👩🏽')">
-      🌷 Personaje 3
-    </button>
-
-    <button onclick="continuar()">
-      Continuar 💕
-    </button>
-
   </div>
 
+</section>
 
-  <!-- TERCERA PANTALLA -->
-  <div id="pantallaSiguiente" class="pantalla" style="display: none;">
+<section id="plantacion" class="pantalla">
 
-    <h2>¡Tu personaje está listo! 🎀</h2>
+  <h1>
+    ¡Vamos a plantar! 🌱
+  </h1>
 
-    <div id="personajeFinal">
-      👧
+  <p id="pasoPlantacion" class="mensajePlantacion">
+    Primero hagamos un hoyito.
+  </p>
+
+  <div class="plantacionZona">
+
+    <div id="hoyito" class="hoyito"></div>
+
+    <div id="semilla" class="semilla">
+      🌰
     </div>
 
-    <p>Ahora podemos elegir su ropita 👗✨</p>
+    <img id="arbolPlantado" src="arbol.png" alt="Árbol plantado" class="arbolPlantado">
 
-    <button onclick="alert('Aquí pondremos la ropa después 👗')">
-      Elegir ropa 👗
-    </button>
+    <img id="pibbleArbol" src="" alt="Pibble junto al árbol" class="pibbleArbol">
+
+    <div class="tierra"></div>
 
   </div>
 
+  <p id="mensajeTocarTierra" class="mensajeTocarTierra">
+    ¡Toca la tierra! 💚
+  </p>
 
-  <script>
+  <button id="botonPlantacion" onclick="accionPlantacion()">
+    Hacer hoyito 🌱
+  </button>
 
-    function empezar() {
+</section><section id="propuestas" class="pantalla">
 
-      document.getElementById("pantallaInicio").style.display = "none";
+  <div class="inicioDecoracion">
+    🌷🌱🐾
+  </div>
 
-      document.getElementById("pantallaPersonaje").style.display = "block";
+  <h1>
+    ¡¡Mira algunas de las propuestas de mi planilla!!
+  </h1>
 
-    }
+  <img
+    src="Propuesta1n.webp"
+    class="propuestasImagen"
+    alt="Propuesta 1"
+  >
+
+  <img
+    src="Propuesta2h.webp"
+    class="propuestasImagen"
+    alt="Propuesta 2"
+  >
+
+  <img
+    src="Propuesta3j.webp"
+    class="propuestasImagen"
+    alt="Propuesta 3"
+  >
+
+  <img
+    src="Propuesta4k.webp"
+    class="propuestasImagen"
+    alt="Propuesta 4"
+  >
+
+  <img
+    src="Propuesta5a.webp"
+    class="propuestasImagen"
+    alt="Propuesta 5"
+  >
+
+  <p class="fraseFinal">
+    Unidos logramos más. 🌱💚
+  </p>
+
+  <p>
+    ¡Gracias por interactuar y conocer nuestras propuestas! 🐾
+  </p>
+
+  <button onclick="mostrar('inicio')">
+    Volver al inicio 🏠
+  </button>
+
+</section>
+
+<script>
+
+var nombre = "";
+
+var pibbleNormal = "pibble_acode.png";
+
+var pibblePixel = "Normalpixeleado.jpg";
+
+var pibbleElegido = "";
+
+var emocionActual = "";
+
+var pasoActual = 0;
 
 
-    function cambiarPersonaje(personaje) {
+function mostrar(id) {
 
-      document.getElementById("personaje").textContent = personaje;
+  var pantallas =
+    document.querySelectorAll(".pantalla");
 
-    }
+  pantallas.forEach(function(pantalla) {
+
+    pantalla.classList.remove("activa");
+
+  });
+
+  var pantallaElegida =
+    document.getElementById(id);
+
+  if (pantallaElegida)
+    pantallaElegida.classList.add("activa");
+
+}
 
 
-    function continuar() {
+function guardarNombre() {
 
-      let personajeElegido =
-        document.getElementById("personaje").textContent;
+  var input =
+    document.getElementById("nombreUsuario");
 
-      document.getElementById("pantallaPersonaje").style.display = "none";
+  var valor =
+    input.value.trim();
 
-      document.getElementById("pantallaSiguiente").style.display = "block";
+  if (valor === "") {
 
-      document.getElementById("personajeFinal").textContent =
-        personajeElegido;
+    alert("Escribe un nombre primero 💗");
 
-    }
+    return;
 
-  </script>
+  }
+
+  nombre = valor;
+
+  document.getElementById("nombreMostrar").textContent =
+    nombre;
+
+  mostrar("pibbles");
+
+}
+
+
+function seleccionarPibble(boton) {
+
+  var botones =
+    document.querySelectorAll(".botonPibble");
+
+  botones.forEach(function(b) {
+
+    b.classList.remove("seleccionado");
+
+  });
+
+  boton.classList.add("seleccionado");
+
+  pibbleNormal =
+    boton.dataset.normal;
+
+  pibblePixel =
+    boton.dataset.pixel;
+
+  pibbleElegido =
+    boton.dataset.nombre;
+
+  document.getElementById("pibblePrincipal").src =
+    pibbleNormal;
+
+  document.getElementById("botonListo").disabled =
+    false;
+
+}
+
+
+function confirmarPibble() {
+
+  if (pibbleElegido === "") {
+
+    alert("Primero elige un Pibble 🐾");
+
+    return;
+
+  }
+
+  mostrar("emociones");
+
+}
+
+
+function mostrarConsejo(emocion) {
+
+  emocionActual = emocion;
+
+  var imagen =
+    document.getElementById("imagenEmocion");
+
+  var pibble =
+    document.getElementById("pibbleConsejo");
+
+  var titulo =
+    document.getElementById("tituloConsejo");
+
+  var texto =
+    document.getElementById("textoConsejo");
+
+
+  imagen.className = "imagenEmocion";
+
+  pibble.className = "pibbleConsejo";
+
+
+  if (emocion === "feliz") {
+
+    imagen.src = "feliz.jpg";
+
+    titulo.textContent =
+      "Me alegra bastante que estes feliz💗";
+
+    texto.textContent =
+      "de verdad espero que esa felicidad no se vaya y disfrutes con las personas que quieres🌷";
+
+    pibble.classList.add("movimientoFeliz");
+
+  }
+
+
+  else if (emocion === "tranquilo") {
+
+    imagen.src = "tranquilo.jpg";
+
+    titulo.textContent =
+      "Qué bonito sentirse tranquilo 🌿";
+
+    texto.textContent =
+      "Me alegra que estes tranquilo intenta mantenerte asi 💚";
+
+    pibble.classList.add("movimientoTranquilo");
+
+  }
+
+
+  else if (emocion === "triste") {
+
+    imagen.src = "triste.jpg";
+
+    titulo.textContent =
+      "Está bien estar mal 💗";
+
+    texto.textContent =
+      "No tienes que estar feliz todo el tiempo. no t culpes por simplemente ser un humano y sentir 💗";
+
+    pibble.classList.add("movimientoTriste");
+
+  }
+
+
+  else if (emocion === "cansado") {
+
+    imagen.src = "cansado.jpg";
+
+    titulo.textContent =
+      "ayy";
+
+    texto.textContent =
+      "Tómate un descanso, respira y date permiso de detenerte unas horitas y duerme o haz algo q te guste 🌙";
+
+    pibble.classList.add("movimientoCansado");
+
+  }
+
+
+  else if (emocion === "enojado") {
+
+    imagen.src = "enojado.jpg";
+
+    titulo.textContent =
+      "Respira un poquito 🌿";
+
+    texto.textContent =
+      "Cuando algo nos enoja, podemos detenernos, respirar y pensar antes de actuar 💚";
+
+    pibble.classList.add("movimientoEnojado");
+
+  }
+
+
+  else if (emocion === "confundido") {
+
+    imagen.src = "confundido.gif";
+
+    titulo.textContent =
+      "No pasa nada si estás confundido 💗";
+
+    texto.textContent =
+      "A veces necesitamos tiempo para entender lo que sentimos. Ve poquito a poquito 🌷";
+
+  }
+
+
+  pibble.src = pibbleNormal;
+
+  mostrar("consejo");
+
+}
+
+
+function prepararMiniJuego() {
+
+  var dialogo =
+    document.getElementById("dialogoTexto");
+
+  dialogo.innerHTML =
+    "Hola, " + nombre + " 💗<br><br>" +
+    "¿Quieres ayudarme a plantar un arbolito y conocer algunas propuestas?";
+
+  mostrar("miniJuego");
+
+}
+
+
+function comenzarPlantacion() {
+
+  pasoActual = 0;
+
+  document.getElementById("hoyito").style.display =
+    "none";
+
+  document.getElementById("semilla").style.display =
+    "none";
+
+  document.getElementById("arbolPlantado").style.display =
+    "none";
+
+  document.getElementById("pibbleArbol").style.display =
+    "none";
+
+  document.getElementById("pibbleArbol").src =
+    pibbleNormal;
+
+  document.getElementById("pasoPlantacion").textContent =
+    "Primero hagamos un hoyito 🌱";
+
+  document.getElementById("botonPlantacion").textContent =
+    "Hacer hoyito 🌱";
+
+  document.getElementById("botonPlantacion").disabled =
+    false;
+
+  document.getElementById("mensajeTocarTierra").style.display =
+    "block";
+
+  mostrar("plantacion");
+
+}
+
+
+function accionPlantacion() {
+
+  var texto =
+    document.getElementById("pasoPlantacion");
+
+  var boton =
+    document.getElementById("botonPlantacion");
+
+  var hoyito =
+    document.getElementById("hoyito");
+
+  var semilla =
+    document.getElementById("semilla");
+
+  var arbol =
+    document.getElementById("arbolPlantado");
+
+  var pibble =
+    document.getElementById("pibbleArbol");
+
+
+  pasoActual++;
+
+
+  if (pasoActual === 1) {
+
+    hoyito.style.display =
+      "block";
+
+    document.getElementById("mensajeTocarTierra").style.display =
+      "none";
+
+    texto.textContent =
+      "¡Listo! 💚 Ya tenemos nuestro hoyito.";
+
+    boton.textContent =
+      "Siguiente ✨";
+
+  }
+
+
+  else if (pasoActual === 2) {
+
+    semilla.style.display =
+      "block";
+
+    texto.textContent =
+      "Ahora pongamos la semillita 🌰";
+
+    boton.textContent =
+      "Siguiente ✨";
+
+  }
+
+
+  else if (pasoActual === 3) {
+
+    texto.textContent =
+      "La semillita ya está lista 🌱 Ahora hay que darle agua.";
+
+    boton.textContent =
+      "Regar 💧";
+
+  }
+
+
+  else if (pasoActual === 4) {
+
+    boton.disabled = true;
+
+    texto.textContent =
+      "Regando la semillita... 💧🌱";
+
+
+    setTimeout(function() {
+
+      hoyito.style.display =
+        "none";
+
+      semilla.style.display =
+        "none";
+
+      arbol.style.display =
+        "block";
+
+      pibble.src =
+        pibbleNormal;
+
+      pibble.style.display =
+        "block";
+
+      texto.textContent =
+        "¡Mira! 🌳💚 ¡Nuestro arbolito creció!";
+
+      boton.disabled =
+        false;
+
+      boton.textContent =
+        "Siguiente ✨";
+
+      pasoActual = 5;
+
+    }, 2500);
+
+  }
+
+
+  else if (pasoActual === 5) {
+
+    texto.textContent =
+      "¡Lo logramos juntos! 🌱🐾";
+
+    boton.textContent =
+      "Ver propuestas 🌷";
+
+    boton.onclick = function() {
+
+      mostrar("propuestas");
+
+    };
+
+    pasoActual = 6;
+
+  }
+
+
+  else if (pasoActual === 6) {
+
+    mostrar("propuestas");
+
+  }
+
+}
+
+</script>
 
 </body>
-</html>
+
+  </html>
